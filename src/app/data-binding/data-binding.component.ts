@@ -73,6 +73,7 @@ export class DataBindingComponent implements OnInit {
   valorAtual: string;
   valorSalvo: string;
   isMouseOver: boolean = false;
+  nomeDoCurso: string;
 
   getValor(value: number) {
     return value;
@@ -111,6 +112,7 @@ export class DataBindingComponent implements OnInit {
     this.url = 'https://leonardo.dev/';
     this.cursoAngular = true;
     this.urlImagem = 'http://lorempixel.com.br/300/200/';
+    this.nomeDoCurso = 'Angular';
 
     this.isOpen = true;
 
