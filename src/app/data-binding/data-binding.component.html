@@ -1,0 +1,49 @@
+<section class="property-biding">
+  <article class="mt-3">
+    <h1 class="mb-3">Class e Style Binding</h1>
+    <div class="form-floating">
+      <select #typeA id="typeAlert" class="form-select" (change)="(0)">
+        <option [value]="undefined">Nenhum tipo escolhido</option>
+        <option value="success">success</option>
+        <option value="info">info</option>
+        <option value="warning">warning</option>
+        <option value="danger">danger</option>
+        <option value="primary">primary</option>
+        <option value="secondary">secondary</option>
+        <option value="light">light</option>
+        <option value="dark">dark</option>
+      </select>
+      <label for="typeAlert" class="">Selecione o tipo de alerta</label>
+    </div>
+    <button class="btn btn-primary mt-2" (click)="reset()">Resetar</button>
+    <p *ngFor="let alert of alerts" class="mt-3">
+      <ngb-alert
+        [type]="alert.type"
+        (closed)="close(alert)"
+        *ngIf="alert.type === typeA.value"
+        >{{ alert.message }}</ngb-alert
+      >
+    </p>
+    <div class="alert" [class]="'alert-' + typeA.value" role="alert">
+      Texto colorido conforme o select
+    </div>
+  </article>
+  <article class="mt-3">
+    <h1>Property biding e Interpolação</h1>
+    <p>Meu nome: {{ name }}</p>
+    <input [(ngModel)]="name" id="name" type="text" />
+    <p>
+      Meu site: <a [href]="url">{{ url }}</a>
+    </p>
+    <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+    <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor(3) }}</p>
+    <p>
+      Curso de Anular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}
+    </p>
+    <div class="images flex">
+      <img src="{{ urlImagem + '?1' }}" alt="BR HUEHUE" />
+      <img [src]="urlImagem + '?2'" alt="BR HUEHUE" />
+      <img bind-src="urlImagem + '?3'" alt="BR HUEHUE" />
+    </div>
+  </article>
+</section>
