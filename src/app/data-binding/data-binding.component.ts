@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Person {
+  name: string;
+  age: number;
+}
+
 interface Alert {
   type: string;
   message: string;
@@ -46,7 +51,9 @@ const ALERTS: Alert[] = [
   styleUrls: ['./data-binding.component.scss'],
 })
 export class DataBindingComponent implements OnInit {
+  person: Person;
   name: string;
+  age: number;
   url: string;
   cursoAngular: boolean;
   urlImagem: string;
@@ -95,7 +102,12 @@ export class DataBindingComponent implements OnInit {
   }
 
   constructor() {
+    this.person = {
+      name: 'Leonardo',
+      age: 23,
+    };
     this.name = 'Leonardo';
+    this.age = 23;
     this.url = 'https://leonardo.dev/';
     this.cursoAngular = true;
     this.urlImagem = 'http://lorempixel.com.br/300/200/';
