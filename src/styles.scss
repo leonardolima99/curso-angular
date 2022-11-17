@@ -3,6 +3,11 @@ $primary: #8200d9;
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
 
+.transition-2 {
+  transition: all 0.2s ease-out;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

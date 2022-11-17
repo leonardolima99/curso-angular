@@ -63,14 +63,9 @@ export class DataBindingComponent implements OnInit {
     | undefined;
 
   alerts: Alert[];
-
-  close(alert: Alert) {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  reset() {
-    this.alerts = Array.from(ALERTS);
-  }
+  valorAtual: string;
+  valorSalvo: string;
+  isMouseOver: boolean = false;
 
   getValor(value: number) {
     return value;
@@ -78,6 +73,27 @@ export class DataBindingComponent implements OnInit {
   getCurtirCurso() {
     return true;
   }
+
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
+  reset() {
+    this.alerts = Array.from(ALERTS);
+  }
+
+  botaoClicado() {
+    alert('Fui clicado!');
+  }
+  onKeyUp(event: KeyboardEvent) {
+    this.valorAtual = (<HTMLInputElement>event.target).value;
+  }
+  salvarValor(value: string) {
+    this.valorSalvo = value;
+  }
+  onMouseOverOut() {
+    this.isMouseOver = !this.isMouseOver;
+  }
+
   constructor() {
     this.name = 'Leonardo';
     this.url = 'https://leonardo.dev/';
@@ -88,6 +104,9 @@ export class DataBindingComponent implements OnInit {
 
     this.alerts = Array.from(ALERTS);
     this.reset();
+
+    this.valorAtual = '';
+    this.valorSalvo = '';
   }
 
   ngOnInit(): void {}
